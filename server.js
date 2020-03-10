@@ -36,6 +36,10 @@ app.get('/movie', function handleGetTypes(req, res) {
     );
   }
 
+  if (req.query.avg_vote) {
+    movies = movies.filter(movie => movie.avg_vote >= req.query.avg_vote);
+  }
+
   res.json(movies);
 })
 
